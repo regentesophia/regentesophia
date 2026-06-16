@@ -1,0 +1,57 @@
+*, *::before, *::after { box-sizing: border-box; }
+html, body { overflow-x: hidden; max-width: 100%; }
+
+body { font-family: 'Poppins', sans-serif; background-color: #FFF8F5; margin: 0; }
+
+/* ── SIDEBAR ── */
+#sidebar { position: fixed; top: 0; left: 0; width: 220px; height: 100vh; background-color: #FDE8F4; border-right: 2px solid #E8C8F0; padding: 28px 16px; z-index: 200; overflow-y: auto; }
+#sidebar .brand { display: flex; align-items: center; gap: 10px; margin-bottom: 28px; }
+#sidebar .nav-item a { display: flex; align-items: center; gap: 12px; padding: 10px 14px; border-radius: 14px; text-decoration: none; color: #7C4DA0; font-weight: 500; font-size: 0.95rem; transition: background 0.2s; margin-bottom: 4px; }
+#sidebar .nav-item a:hover { background-color: #EEE0FA; color: #5A2D82; }
+
+/* ── MAIN ── */
+#main { margin-left: 220px; }
+
+/* ── INNER WRAP ── */
+.inner { padding-left: 80px; padding-right: 80px; }
+
+/* ── SECTION SPACING ── */
+.section-pad { padding-top: 56px; padding-bottom: 56px; }
+
+/* ── DIVIDER ── */
+.divider { background-color: #FDE8F4; padding: 10px 0; text-align: center; letter-spacing: 6px; color: #D4B0F0; font-size: 0.9rem; }
+
+/* SCROLL ANIMATIONS (Cleaned up transitions) */
+.fade-up, .fade-left, .fade-right { transition: opacity 0.7s ease, transform 0.7s ease; }
+.fade-up   { opacity: 0; transform: translateY(40px); }
+.fade-left { opacity: 0; transform: translateX(-40px); }
+.fade-right{ opacity: 0; transform: translateX(40px); }
+.fade-up.visible, .fade-left.visible, .fade-right.visible { opacity: 1; transform: translate(0); }
+
+.post-card { transition: transform 0.3s ease, box-shadow 0.3s ease; }
+.post-card:hover { transform: translateY(-6px); box-shadow: 0 12px 32px rgba(180,140,200,0.18) !important; }
+.pfp-ring { border: 5px solid #E8C8F0; border-radius: 50%; padding: 4px; background: white; }
+.section-label { letter-spacing: 3px; font-size: 0.75rem; text-transform: uppercase; }
+
+/* SKILLS TABLE */
+.skills-table { width: 100%; border-collapse: separate; border-spacing: 0; }
+.skills-table thead th { padding: 14px 20px; font-size: 0.8rem; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; }
+.skills-table tbody td { padding: 10px 20px; font-size: 0.88rem; color: #5A2D82; border-top: 1px solid #F0E4FF; vertical-align: middle; }
+.skill-dot { display: inline-block; width: 5px; height: 5px; border-radius: 50%; margin-right: 8px; }
+
+/* ── STATS ── */
+.stats-row { display: flex; gap: 12px; margin-top: 16px; }
+.stat-pill { display: flex; align-items: center; gap: 8px; border-radius: 20px; padding: 6px 16px; }
+.stat-pill .stat-num { font-size: 1.1rem; font-weight: 700; }
+.stat-pill .stat-lbl { font-size: 0.75rem; }
+
+/* ── RESPONSIVE MOBILE ── */
+@media (max-width: 768px) {
+  #sidebar { position: sticky; top: 0; width: 100%; height: auto; display: flex; flex-direction: row; align-items: center; padding: 12px 16px; border-right: none; border-bottom: 2px solid #E8C8F0; overflow-x: auto; white-space: nowrap; z-index: 1000; }
+  #sidebar .brand { margin-bottom: 0; margin-right: 20px; }
+  #sidebar .nav-item a { margin-bottom: 0; padding: 8px 16px; justify-content: center; }
+  #main { margin-left: 0; }
+  .inner { padding-left: 20px; padding-right: 20px; }
+  .section-pad { padding-top: 36px; padding-bottom: 36px; }
+  .stats-row { flex-wrap: wrap; }
+}
